@@ -1,5 +1,59 @@
 [
   {
+    "id": "1750165378083",
+    "machineId": "3",
+    "machineName": "SRV-LYON-001",
+    "type": "up",
+    "message": "Machine SRV-LYON-001 recovery simulated",
+    "timestamp": "2025-06-17T13:02:58.083Z",
+    "acknowledged": false
+  },
+  {
+    "id": "1750165373759",
+    "machineId": "3",
+    "machineName": "SRV-LYON-001",
+    "type": "down",
+    "message": "Machine SRV-LYON-001 failure simulated",
+    "timestamp": "2025-06-17T13:02:53.759Z",
+    "acknowledged": false
+  },
+  {
+    "id": "1750165372364",
+    "machineId": "3",
+    "machineName": "SRV-LYON-001",
+    "type": "up",
+    "message": "Machine SRV-LYON-001 is back online",
+    "timestamp": "2025-06-17T13:02:52.364Z",
+    "acknowledged": false
+  },
+  {
+    "id": "1750165370243",
+    "machineId": "3",
+    "machineName": "SRV-LYON-001",
+    "type": "down",
+    "message": "Machine SRV-LYON-001 failure simulated",
+    "timestamp": "2025-06-17T13:02:50.243Z",
+    "acknowledged": false
+  },
+  {
+    "id": "1750165368127",
+    "machineId": "3",
+    "machineName": "SRV-LYON-001",
+    "type": "up",
+    "message": "Machine SRV-LYON-001 is back online",
+    "timestamp": "2025-06-17T13:02:48.127Z",
+    "acknowledged": false
+  },
+  {
+    "id": "1750165059267",
+    "machineId": "3",
+    "machineName": "SRV-LYON-001",
+    "type": "down",
+    "message": "Machine SRV-LYON-001 is now offline",
+    "timestamp": "2025-06-17T12:57:39.267Z",
+    "acknowledged": false
+  },
+  {
     "id": "1750151785405",
     "machineId": "15",
     "machineName": "SRV-FILE-001",

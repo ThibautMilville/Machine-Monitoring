@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle, XCircle, AlertTriangle, Activity, Clock, Zap, Loader2 } from 'lucide-react';
+import { CheckCircle, XCircle, AlertTriangle, Activity, Clock, Zap, Loader2, AlertOctagon } from 'lucide-react';
 import { Machine } from '../types';
 
 // Icônes pour les catégories
@@ -35,9 +35,30 @@ interface MachineCardProps {
   machine: Machine;
   onPing: () => void;
   isPinging?: boolean;
+  onSimulateFailure?: () => void;
+  isSimulatingFailure?: boolean;
+  isSimulatedFailure?: boolean;
 }
 
-const MachineCard: React.FC<MachineCardProps> = ({ machine, onPing, isPinging = false }) => {
+const MachineCard: React.FC<MachineCardProps> = ({ 
+  machine, 
+  onPing, 
+  isPinging = false, 
+  onSimulateFailure, 
+  isSimulatingFailure = false,
+  isSimulatedFailure = false
+}) => {
+  // Mapping des serveurs publics vers des IPs fictives pour l'affichage
+  const getDisplayIP = (realHost: string, machineName: string) => {
+    const ipMapping: { [key: string]: string } = {
+      '8.8.8.8': '192.168.1.10',      // Paris
+      '1.1.1.1': '192.168.2.10',      // Marseille  
+      '9.9.9.9': '192.168.3.10',      // Lyon
+      '8.8.4.4': '192.168.4.10',      // Toulouse
+      '208.67.222.222': '192.168.5.10' // Bordeaux
+    };
+    return ipMapping[realHost] || realHost;
+  };
   const getStatusInfo = () => {
     switch (machine.status) {
       case 'online':
@@ -133,7 +154,7 @@ const MachineCard: React.FC<MachineCardProps> = ({ machine, onPing, isPinging = 
         <div className="space-y-2">
           <div className="flex items-center justify-between text-sm">
             <span className="text-gray-600">Adresse IP:</span>
-            <span className="font-mono text-gray-900 bg-gray-100 px-2 py-1 rounded">{machine.host}</span>
+            <span className="font-mono text-gray-900 bg-gray-100 px-2 py-1 rounded">{getDisplayIP(machine.host, machine.name)}</span>
           </div>
           
           {machine.description && (
@@ -182,12 +203,20 @@ const MachineCard: React.FC<MachineCardProps> = ({ machine, onPing, isPinging = 
         </div>
 
         {/* Actions - toujours en bas grâce à mt-auto */}
-        <div className="pt-2 border-t border-gray-200 mt-auto">
+        <div className="pt-2 border-t border-gray-200 mt-auto space-y-2">
+          {isSimulatedFailure && (
+            <div className="bg-orange-50 border border-orange-200 rounded-lg p-2 text-center">
+              <span className="text-xs text-orange-700 font-medium">
+                ⚠️ Panne simulée active - Les pings échoueront
+              </span>
+            </div>
+          )}
+          
           <button
             onClick={onPing}
-            disabled={isPinging}
+            disabled={isPinging || isSimulatingFailure || isSimulatedFailure}
             className={`w-full flex items-center justify-center space-x-2 px-4 py-2.5 rounded-lg font-medium transition-all duration-200 ${
-              isPinging
+              isPinging || isSimulatingFailure || isSimulatedFailure
                 ? 'bg-gray-100 text-gray-500 cursor-not-allowed'
                 : 'bg-blue-600 text-white hover:bg-blue-700 hover:shadow-md'
             }`}
@@ -197,6 +226,11 @@ const MachineCard: React.FC<MachineCardProps> = ({ machine, onPing, isPinging = 
                 <Loader2 className="h-4 w-4 animate-spin" />
                 <span>Test en cours...</span>
               </>
+            ) : isSimulatedFailure ? (
+              <>
+                <AlertOctagon className="h-4 w-4" />
+                <span>Ping désactivé (panne simulée)</span>
+              </>
             ) : (
               <>
                 <Zap className="h-4 w-4" />
@@ -204,6 +238,34 @@ const MachineCard: React.FC<MachineCardProps> = ({ machine, onPing, isPinging = 
               </>
             )}
           </button>
+          
+          {onSimulateFailure && (
+            <button
+              onClick={onSimulateFailure}
+              disabled={isPinging || isSimulatingFailure}
+              className={`w-full flex items-center justify-center space-x-2 px-4 py-2.5 rounded-lg font-medium transition-all duration-200 ${
+                isPinging || isSimulatingFailure
+                  ? 'bg-gray-100 text-gray-500 cursor-not-allowed'
+                  : isSimulatedFailure
+                    ? 'bg-green-600 text-white hover:bg-green-700 hover:shadow-md'
+                    : 'bg-red-600 text-white hover:bg-red-700 hover:shadow-md'
+              }`}
+            >
+              {isSimulatingFailure ? (
+                <>
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  <span>Simulation...</span>
+                </>
+              ) : (
+                <>
+                  <AlertOctagon className="h-4 w-4" />
+                  <span>
+                    {isSimulatedFailure ? 'Rétablir le serveur' : 'Simuler une panne'}
+                  </span>
+                </>
+              )}
+            </button>
+          )}
         </div>
       </div>
     </div>

@@ -1,116 +1,96 @@
 [
   {
     "id": "1",
-    "name": "SRV-DC-001",
+    "name": "SRV-PARIS-001",
     "host": "8.8.8.8",
-    "description": "Contrôleur de domaine principal - Datacenter Paris",
+    "description": "Serveur principal - Datacenter Paris",
     "category": "Server",
     "status": "online",
     "lastCheck": "2025-06-17T09:37:18.368Z",
-    "responseTime": 113,
+    "responseTime": 25,
     "uptime": 720,
     "downtime": 15,
     "history": [
       {
         "timestamp": "2025-06-17T09:55:00.000Z",
         "status": "online",
-        "responseTime": 10
+        "responseTime": 22
       },
       {
         "timestamp": "2025-06-17T09:50:00.000Z",
         "status": "online",
-        "responseTime": 15
+        "responseTime": 28
       },
       {
         "timestamp": "2025-06-17T09:45:00.000Z",
         "status": "online",
-        "responseTime": 12
+        "responseTime": 24
       },
       {
-        "timestamp": "2025-06-17T09:23:42.566Z",
+        "timestamp": "2025-06-17T09:40:00.000Z",
         "status": "online",
-        "responseTime": 175
+        "responseTime": 26
       },
       {
-        "timestamp": "2025-06-17T09:32:19.447Z",
+        "timestamp": "2025-06-17T09:35:00.000Z",
         "status": "online",
-        "responseTime": 36
-      },
-      {
-        "timestamp": "2025-06-17T09:37:17.034Z",
-        "status": "online",
-        "responseTime": 20.1
-      },
-      {
-        "timestamp": "2025-06-17T09:37:17.326Z",
-        "status": "online",
-        "responseTime": 186
-      },
-      {
-        "timestamp": "2025-06-17T09:37:17.429Z",
-        "status": "online",
-        "responseTime": 79.1
-      },
-      {
-        "timestamp": "2025-06-17T09:37:17.515Z",
-        "status": "online",
-        "responseTime": 37.7
-      },
-      {
-        "timestamp": "2025-06-17T09:37:17.766Z",
-        "status": "online",
-        "responseTime": 106
-      },
-      {
-        "timestamp": "2025-06-17T09:37:17.978Z",
-        "status": "online",
-        "responseTime": 27.8
-      },
-      {
-        "timestamp": "2025-06-17T09:37:18.167Z",
-        "status": "online",
-        "responseTime": 78.5
-      },
-      {
-        "timestamp": "2025-06-17T09:37:18.368Z",
-        "status": "online",
-        "responseTime": 113
+        "responseTime": 23
       }
     ],
-    "uptimePercentage": 100,
+    "uptimePercentage": 98,
     "createdAt": "2024-01-15T08:00:00.000Z"
   },
   {
     "id": "2",
-    "name": "SRV-WEB-001",
+    "name": "SRV-MARSEILLE-001",
     "host": "1.1.1.1",
-    "description": "Serveur web principal - Applications métier",
-    "category": "Web Server",
+    "description": "Serveur principal - Datacenter Marseille",
+    "category": "Server",
     "status": "online",
-    "lastCheck": "2025-06-17T09:32:19.447Z",
-    "responseTime": 32.2,
+    "lastCheck": "2025-06-17T13:02:47.187Z",
+    "responseTime": 10.1,
     "uptime": 680,
     "downtime": 25,
     "history": [
       {
         "timestamp": "2025-06-17T09:55:00.000Z",
         "status": "online",
-        "responseTime": 42
+        "responseTime": 30
       },
       {
         "timestamp": "2025-06-17T09:50:00.000Z",
         "status": "online",
-        "responseTime": 48
+        "responseTime": 35
       },
       {
         "timestamp": "2025-06-17T09:45:00.000Z",
         "status": "online",
-        "responseTime": 45
+        "responseTime": 31
       },
       {
-        "timestamp": "2025-06-17T09:32:19.447Z",
+        "timestamp": "2025-06-17T09:40:00.000Z",
         "status": "online",
-        "responseTime": 32.2
+        "responseTime": 33
+      },
+      {
+        "timestamp": "2025-06-17T09:35:00.000Z",
+        "status": "online",
+        "responseTime": 29
+      },
+      {
+        "timestamp": "2025-06-17T13:02:45.739Z",
+        "status": "online",
+        "responseTime": 7.54
+      },
+      {
+        "timestamp": "2025-06-17T13:02:46.728Z",
+        "status": "online",
+        "responseTime": 11
+      },
+      {
+        "timestamp": "2025-06-17T13:02:47.187Z",
+        "status": "online",
+        "responseTime": 10.1
       }
     ],
     "uptimePercentage": 100,
@@ -118,610 +98,220 @@
   },
   {
     "id": "3",
-    "name": "SRV-DB-001",
+    "name": "SRV-LYON-001",
     "host": "9.9.9.9",
-    "description": "Base de données principale - PostgreSQL",
-    "category": "Database",
+    "description": "Serveur principal - Datacenter Lyon",
+    "category": "Server",
     "status": "online",
-    "lastCheck": "2025-06-17T09:32:19.450Z",
-    "responseTime": 33.1,
+    "lastCheck": "2025-06-17T13:03:02.626Z",
+    "responseTime": 20,
     "uptime": 700,
     "downtime": 20,
     "history": [
       {
         "timestamp": "2025-06-17T09:55:00.000Z",
         "status": "online",
-        "responseTime": 8
+        "responseTime": 16
       },
       {
         "timestamp": "2025-06-17T09:50:00.000Z",
         "status": "online",
-        "responseTime": 9
+        "responseTime": 20
       },
       {
         "timestamp": "2025-06-17T09:45:00.000Z",
         "status": "online",
-        "responseTime": 7
+        "responseTime": 17
       },
       {
-        "timestamp": "2025-06-17T09:23:47.558Z",
+        "timestamp": "2025-06-17T09:40:00.000Z",
         "status": "online",
-        "responseTime": 121
+        "responseTime": 19
       },
       {
-        "timestamp": "2025-06-17T09:32:19.450Z",
+        "timestamp": "2025-06-17T09:35:00.000Z",
         "status": "online",
-        "responseTime": 33.1
+        "responseTime": 15
+      },
+      {
+        "timestamp": "2025-06-17T12:57:39.266Z",
+        "status": "offline",
+        "responseTime": null
+      },
+      {
+        "timestamp": "2025-06-17T13:02:48.127Z",
+        "status": "online",
+        "responseTime": 23.2
+      },
+      {
+        "timestamp": "2025-06-17T13:02:48.947Z",
+        "status": "online",
+        "responseTime": 21
+      },
+      {
+        "timestamp": "2025-06-17T13:02:49.487Z",
+        "status": "online",
+        "responseTime": 40.8
+      },
+      {
+        "timestamp": "2025-06-17T13:02:50.243Z",
+        "status": "offline",
+        "responseTime": null
+      },
+      {
+        "timestamp": "2025-06-17T13:02:52.359Z",
+        "status": "online",
+        "responseTime": 27.7
+      },
+      {
+        "timestamp": "2025-06-17T13:02:53.074Z",
+        "status": "online",
+        "responseTime": 27
+      },
+      {
+        "timestamp": "2025-06-17T13:02:53.758Z",
+        "status": "offline",
+        "responseTime": null
+      },
+      {
+        "timestamp": "2025-06-17T13:02:58.083Z",
+        "status": "online",
+        "responseTime": 41
+      },
+      {
+        "timestamp": "2025-06-17T13:02:59.861Z",
+        "status": "online",
+        "responseTime": 25.4
+      },
+      {
+        "timestamp": "2025-06-17T13:03:00.264Z",
+        "status": "online",
+        "responseTime": 27.3
+      },
+      {
+        "timestamp": "2025-06-17T13:03:00.656Z",
+        "status": "online",
+        "responseTime": 19.3
+      },
+      {
+        "timestamp": "2025-06-17T13:03:00.856Z",
+        "status": "online",
+        "responseTime": 39.1
+      },
+      {
+        "timestamp": "2025-06-17T13:03:01.093Z",
+        "status": "online",
+        "responseTime": 17.3
+      },
+      {
+        "timestamp": "2025-06-17T13:03:01.496Z",
+        "status": "online",
+        "responseTime": 17.9
+      },
+      {
+        "timestamp": "2025-06-17T13:03:01.824Z",
+        "status": "online",
+        "responseTime": 27.4
+      },
+      {
+        "timestamp": "2025-06-17T13:03:02.188Z",
+        "status": "online",
+        "responseTime": 43.2
+      },
+      {
+        "timestamp": "2025-06-17T13:03:02.355Z",
+        "status": "online",
+        "responseTime": 31.4
+      },
+      {
+        "timestamp": "2025-06-17T13:03:02.626Z",
+        "status": "online",
+        "responseTime": 20
       }
     ],
-    "uptimePercentage": 100,
+    "uptimePercentage": 88,
     "createdAt": "2024-01-20T14:15:00.000Z"
   },
   {
     "id": "4",
-    "name": "RTR-CORE-001",
+    "name": "SRV-TOULOUSE-001",
     "host": "8.8.4.4",
-    "description": "Routeur principal - Cœur de réseau",
-    "category": "Router",
+    "description": "Serveur principal - Datacenter Toulouse",
+    "category": "Server",
     "status": "online",
     "lastCheck": "2025-06-17T09:32:19.447Z",
     "responseTime": 27,
-    "uptime": 850,
-    "downtime": 5,
-    "history": [
-      {
-        "timestamp": "2025-06-17T09:55:00.000Z",
-        "status": "online",
-        "responseTime": 3
-      },
-      {
-        "timestamp": "2025-06-17T09:50:00.000Z",
-        "status": "online",
-        "responseTime": 2
-      },
-      {
-        "timestamp": "2025-06-17T09:45:00.000Z",
-        "status": "online",
-        "responseTime": 4
-      },
-      {
-        "timestamp": "2025-06-17T09:32:19.447Z",
-        "status": "online",
-        "responseTime": 27
-      }
-    ],
-    "uptimePercentage": 100,
-    "createdAt": "2024-01-05T09:00:00.000Z"
-  },
-  {
-    "id": "5",
-    "name": "FW-DMZ-001",
-    "host": "208.67.222.222",
-    "description": "Pare-feu principal - Protection réseau",
-    "category": "Firewall",
-    "status": "online",
-    "lastCheck": "2025-06-17T09:37:04.439Z",
-    "responseTime": 83.2,
-    "uptime": 800,
-    "downtime": 10,
-    "history": [
-      {
-        "timestamp": "2025-06-17T09:55:00.000Z",
-        "status": "online",
-        "responseTime": 5
-      },
-      {
-        "timestamp": "2025-06-17T09:50:00.000Z",
-        "status": "online",
-        "responseTime": 6
-      },
-      {
-        "timestamp": "2025-06-17T09:45:00.000Z",
-        "status": "online",
-        "responseTime": 4
-      },
-      {
-        "timestamp": "2025-06-17T09:32:19.469Z",
-        "status": "online",
-        "responseTime": 46.3
-      },
-      {
-        "timestamp": "2025-06-17T09:32:24.151Z",
-        "status": "online",
-        "responseTime": 191
-      },
-      {
-        "timestamp": "2025-06-17T09:37:03.277Z",
-        "status": "online",
-        "responseTime": 13.1
-      },
-      {
-        "timestamp": "2025-06-17T09:37:04.439Z",
-        "status": "online",
-        "responseTime": 83.2
-      }
-    ],
-    "uptimePercentage": 100,
-    "createdAt": "2024-01-08T11:45:00.000Z"
-  },
-  {
-    "id": "6",
-    "name": "SW-ACCESS-001",
-    "host": "208.67.220.220",
-    "description": "Switch d'accès - Étage 1",
-    "category": "Switch",
-    "status": "online",
-    "lastCheck": "2025-06-17T09:32:19.469Z",
-    "responseTime": 44.6,
-    "uptime": 750,
-    "downtime": 15,
-    "history": [
-      {
-        "timestamp": "2025-06-17T09:55:00.000Z",
-        "status": "online",
-        "responseTime": 4
-      },
-      {
-        "timestamp": "2025-06-17T09:50:00.000Z",
-        "status": "online",
-        "responseTime": 3
-      },
-      {
-        "timestamp": "2025-06-17T09:45:00.000Z",
-        "status": "online",
-        "responseTime": 5
-      },
-      {
-        "timestamp": "2025-06-17T09:32:19.469Z",
-        "status": "online",
-        "responseTime": 44.6
-      }
-    ],
-    "uptimePercentage": 100,
-    "createdAt": "2024-02-01T16:20:00.000Z"
-  },
-  {
-    "id": "7",
-    "name": "WKS-ADMIN-001",
-    "host": "1.0.0.1",
-    "description": "Poste administrateur - IT Support",
-    "category": "Workstation",
-    "status": "online",
-    "lastCheck": "2025-06-17T09:32:19.469Z",
-    "responseTime": 43,
-    "uptime": 480,
-    "downtime": 40,
-    "history": [
-      {
-        "timestamp": "2025-06-17T09:55:00.000Z",
-        "status": "online",
-        "responseTime": 25
-      },
-      {
-        "timestamp": "2025-06-17T09:50:00.000Z",
-        "status": "online",
-        "responseTime": 30
-      },
-      {
-        "timestamp": "2025-06-17T09:45:00.000Z",
-        "status": "online",
-        "responseTime": 22
-      },
-      {
-        "timestamp": "2025-06-17T09:32:19.469Z",
-        "status": "online",
-        "responseTime": 43
-      }
-    ],
-    "uptimePercentage": 100,
-    "createdAt": "2024-03-15T08:30:00.000Z"
-  },
-  {
-    "id": "8",
-    "name": "SRV-APP-001",
-    "host": "4.2.2.2",
-    "description": "Serveur d'applications - Node.js",
-    "category": "Application Server",
-    "status": "online",
-    "lastCheck": "2025-06-17T09:37:15.222Z",
-    "responseTime": 128,
     "uptime": 650,
     "downtime": 30,
     "history": [
       {
         "timestamp": "2025-06-17T09:55:00.000Z",
         "status": "online",
-        "responseTime": 35
+        "responseTime": 25
       },
       {
         "timestamp": "2025-06-17T09:50:00.000Z",
         "status": "online",
-        "responseTime": 40
+        "responseTime": 29
       },
       {
         "timestamp": "2025-06-17T09:45:00.000Z",
         "status": "online",
-        "responseTime": 32
+        "responseTime": 26
       },
       {
-        "timestamp": "2025-06-17T09:23:28.596Z",
-        "status": "online",
-        "responseTime": 89.6
-      },
-      {
-        "timestamp": "2025-06-17T09:23:29.828Z",
-        "status": "online",
-        "responseTime": 21.6
-      },
-      {
-        "timestamp": "2025-06-17T09:25:50.142Z",
-        "status": "online",
-        "responseTime": 59.5
-      },
-      {
-        "timestamp": "2025-06-17T09:32:19.469Z",
-        "status": "online",
-        "responseTime": 40.9
-      },
-      {
-        "timestamp": "2025-06-17T09:37:12.142Z",
-        "status": "online",
-        "responseTime": 33.6
-      },
-      {
-        "timestamp": "2025-06-17T09:37:12.947Z",
-        "status": "online",
-        "responseTime": 80.4
-      },
-      {
-        "timestamp": "2025-06-17T09:37:13.122Z",
-        "status": "online",
-        "responseTime": 80.5
-      },
-      {
-        "timestamp": "2025-06-17T09:37:13.670Z",
-        "status": "online",
-        "responseTime": 62
-      },
-      {
-        "timestamp": "2025-06-17T09:37:14.310Z",
-        "status": "online",
-        "responseTime": 75.2
-      },
-      {
-        "timestamp": "2025-06-17T09:37:14.557Z",
-        "status": "online",
-        "responseTime": 57.5
-      },
-      {
-        "timestamp": "2025-06-17T09:37:14.664Z",
-        "status": "online",
-        "responseTime": 40.1
-      },
-      {
-        "timestamp": "2025-06-17T09:37:14.801Z",
-        "status": "online",
-        "responseTime": 31.4
-      },
-      {
-        "timestamp": "2025-06-17T09:37:15.222Z",
-        "status": "online",
-        "responseTime": 128
-      }
-    ],
-    "uptimePercentage": 100,
-    "createdAt": "2024-02-28T13:45:00.000Z"
-  },
-  {
-    "id": "9",
-    "name": "LB-WEB-001",
-    "host": "192.168.100.50",
-    "description": "Répartiteur de charge - Nginx",
-    "category": "Load Balancer",
-    "status": "offline",
-    "lastCheck": "2025-06-17T09:37:38.811Z",
-    "responseTime": null,
-    "uptime": 400,
-    "downtime": 120,
-    "history": [
-      {
-        "timestamp": "2025-06-17T09:55:00.000Z",
-        "status": "offline",
-        "responseTime": null
-      },
-      {
-        "timestamp": "2025-06-17T09:50:00.000Z",
-        "status": "offline",
-        "responseTime": null
-      },
-      {
-        "timestamp": "2025-06-17T09:45:00.000Z",
-        "status": "online",
-        "responseTime": 18
-      },
-      {
-        "timestamp": "2025-06-17T09:23:23.487Z",
-        "status": "offline",
-        "responseTime": null
-      },
-      {
-        "timestamp": "2025-06-17T09:25:39.938Z",
-        "status": "offline",
-        "responseTime": null
-      },
-      {
-        "timestamp": "2025-06-17T09:25:47.026Z",
-        "status": "offline",
-        "responseTime": null
-      },
-      {
-        "timestamp": "2025-06-17T09:32:21.430Z",
-        "status": "offline",
-        "responseTime": null
-      },
-      {
-        "timestamp": "2025-06-17T09:37:38.811Z",
-        "status": "offline",
-        "responseTime": null
-      }
-    ],
-    "uptimePercentage": 13,
-    "createdAt": "2024-04-10T12:00:00.000Z"
-  },
-  {
-    "id": "10",
-    "name": "PRN-OFFICE-001",
-    "host": "10.0.8.200",
-    "description": "Imprimante réseau - Bureau principal",
-    "category": "Printer",
-    "status": "offline",
-    "lastCheck": "2025-06-17T09:37:02.714Z",
-    "responseTime": null,
-    "uptime": 600,
-    "downtime": 50,
-    "history": [
-      {
-        "timestamp": "2025-06-17T09:55:00.000Z",
-        "status": "offline",
-        "responseTime": null
-      },
-      {
-        "timestamp": "2025-06-17T09:50:00.000Z",
-        "status": "offline",
-        "responseTime": null
-      },
-      {
-        "timestamp": "2025-06-17T09:45:00.000Z",
-        "status": "online",
-        "responseTime": 160
-      },
-      {
-        "timestamp": "2025-06-17T09:23:26.666Z",
-        "status": "offline",
-        "responseTime": null
-      },
-      {
-        "timestamp": "2025-06-17T09:32:21.432Z",
-        "status": "offline",
-        "responseTime": null
-      },
-      {
-        "timestamp": "2025-06-17T09:37:02.714Z",
-        "status": "offline",
-        "responseTime": null
-      }
-    ],
-    "uptimePercentage": 17,
-    "createdAt": "2024-03-01T09:15:00.000Z"
-  },
-  {
-    "id": "11",
-    "name": "SRV-BACKUP-001",
-    "host": "172.16.1.30",
-    "description": "Serveur de sauvegarde - Veeam",
-    "category": "Server",
-    "status": "offline",
-    "lastCheck": "2025-06-17T09:37:25.581Z",
-    "responseTime": null,
-    "uptime": 0,
-    "downtime": 0,
-    "history": [
-      {
-        "timestamp": "2025-06-17T09:24:04.817Z",
-        "status": "offline",
-        "responseTime": null
-      },
-      {
-        "timestamp": "2025-06-17T09:32:21.433Z",
-        "status": "offline",
-        "responseTime": null
-      },
-      {
-        "timestamp": "2025-06-17T09:37:10.989Z",
-        "status": "offline",
-        "responseTime": null
-      },
-      {
-        "timestamp": "2025-06-17T09:37:25.581Z",
-        "status": "offline",
-        "responseTime": null
-      }
-    ],
-    "uptimePercentage": 0,
-    "createdAt": "2024-05-20T15:30:00.000Z"
-  },
-  {
-    "id": "12",
-    "name": "SRV-MAIL-001",
-    "host": "4.2.2.1",
-    "description": "Serveur de messagerie - Exchange",
-    "category": "Server",
-    "status": "online",
-    "lastCheck": "2025-06-17T09:42:51.704Z",
-    "responseTime": 230,
-    "uptime": 720,
-    "downtime": 18,
-    "history": [
-      {
-        "timestamp": "2025-06-17T09:55:00.000Z",
+        "timestamp": "2025-06-17T09:40:00.000Z",
         "status": "online",
         "responseTime": 28
       },
       {
-        "timestamp": "2025-06-17T09:50:00.000Z",
+        "timestamp": "2025-06-17T09:35:00.000Z",
         "status": "online",
-        "responseTime": 25
-      },
-      {
-        "timestamp": "2025-06-17T09:45:00.000Z",
-        "status": "online",
-        "responseTime": 30
-      },
-      {
-        "timestamp": "2025-06-17T09:32:19.470Z",
-        "status": "online",
-        "responseTime": 33.5
-      },
-      {
-        "timestamp": "2025-06-17T09:42:51.704Z",
-        "status": "online",
-        "responseTime": 230
+        "responseTime": 24
       }
     ],
-    "uptimePercentage": 100,
-    "createdAt": "2024-01-25T10:00:00.000Z"
+    "uptimePercentage": 95.6,
+    "createdAt": "2024-01-05T09:00:00.000Z"
   },
   {
-    "id": "13",
-    "name": "WKS-DEV-001",
-    "host": "10.0.11.150",
-    "description": "Poste développeur - Team Frontend",
-    "category": "Workstation",
-    "status": "offline",
-    "lastCheck": "2025-06-17T09:32:21.436Z",
-    "responseTime": null,
-    "uptime": 300,
-    "downtime": 80,
-    "history": [
-      {
-        "timestamp": "2025-06-17T09:55:00.000Z",
-        "status": "offline",
-        "responseTime": null
-      },
-      {
-        "timestamp": "2025-06-17T09:50:00.000Z",
-        "status": "offline",
-        "responseTime": null
-      },
-      {
-        "timestamp": "2025-06-17T09:45:00.000Z",
-        "status": "online",
-        "responseTime": 45
-      },
-      {
-        "timestamp": "2025-06-17T09:32:21.436Z",
-        "status": "offline",
-        "responseTime": null
-      }
-    ],
-    "uptimePercentage": 25,
-    "createdAt": "2024-04-05T14:20:00.000Z"
-  },
-  {
-    "id": "14",
-    "name": "SW-CORE-001",
-    "host": "64.6.64.6",
-    "description": "Switch cœur de réseau - Datacenter",
-    "category": "Switch",
-    "status": "online",
-    "lastCheck": "2025-06-17T09:42:53.544Z",
-    "responseTime": 130,
-    "uptime": 900,
-    "downtime": 8,
-    "history": [
-      {
-        "timestamp": "2025-06-17T09:55:00.000Z",
-        "status": "online",
-        "responseTime": 2
-      },
-      {
-        "timestamp": "2025-06-17T09:50:00.000Z",
-        "status": "online",
-        "responseTime": 1
-      },
-      {
-        "timestamp": "2025-06-17T09:45:00.000Z",
-        "status": "online",
-        "responseTime": 3
-      },
-      {
-        "timestamp": "2025-06-17T09:32:19.470Z",
-        "status": "online",
-        "responseTime": 31.2
-      },
-      {
-        "timestamp": "2025-06-17T09:42:53.544Z",
-        "status": "online",
-        "responseTime": 130
-      }
-    ],
-    "uptimePercentage": 100,
-    "createdAt": "2024-01-10T07:45:00.000Z"
-  },
-  {
-    "id": "15",
-    "name": "SRV-FILE-001",
-    "host": "64.6.65.6",
-    "description": "Serveur de fichiers - NAS Principal",
+    "id": "5",
+    "name": "SRV-BORDEAUX-001",
+    "host": "208.67.222.222",
+    "description": "Serveur principal - Datacenter Bordeaux",
     "category": "Server",
     "status": "online",
-    "lastCheck": "2025-06-17T09:32:19.470Z",
-    "responseTime": 30.2,
-    "uptime": 780,
-    "downtime": 12,
+    "lastCheck": "2025-06-17T09:32:19.447Z",
+    "responseTime": 35,
+    "uptime": 620,
+    "downtime": 40,
     "history": [
       {
         "timestamp": "2025-06-17T09:55:00.000Z",
         "status": "online",
-        "responseTime": 15
+        "responseTime": 33
       },
       {
         "timestamp": "2025-06-17T09:50:00.000Z",
         "status": "online",
-        "responseTime": 18
+        "responseTime": 37
       },
       {
         "timestamp": "2025-06-17T09:45:00.000Z",
         "status": "online",
-        "responseTime": 12
+        "responseTime": 34
       },
       {
-        "timestamp": "2025-06-17T09:23:44.101Z",
+        "timestamp": "2025-06-17T09:40:00.000Z",
         "status": "online",
-        "responseTime": 55.3
+        "responseTime": 36
       },
       {
-        "timestamp": "2025-06-17T09:32:19.470Z",
+        "timestamp": "2025-06-17T09:35:00.000Z",
         "status": "online",
-        "responseTime": 30.2
+        "responseTime": 32
       }
     ],
-    "uptimePercentage": 100,
-    "createdAt": "2024-02-15T11:30:00.000Z"
-  },
-  {
-    "id": "1750153072886",
-    "name": "fsdfsd",
-    "host": "sdfsdfd",
-    "description": "sfdsfds",
-    "category": "Server",
-    "status": "unknown",
-    "lastCheck": null,
-    "responseTime": null,
-    "uptime": 0,
-    "downtime": 0,
-    "history": [],
-    "uptimePercentage": 0,
-    "createdAt": "2025-06-17T09:37:52.886Z"
+    "uptimePercentage": 93.9,
+    "createdAt": "2024-03-01T11:45:00.000Z"
   }
 ]

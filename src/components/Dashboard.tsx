@@ -7,6 +7,7 @@ interface DashboardProps {
   machines: Machine[];
   onPingMachine: (id: string) => void;
   onPingAll: () => void;
+  onSimulateFailure: (id: string) => void;
   stats: {
     online: number;
     offline: number;
@@ -15,6 +16,8 @@ interface DashboardProps {
   };
   pingInProgress: Set<string>;
   globalPingInProgress: boolean;
+  simulationInProgress: Set<string>;
+  simulatedFailures: Set<string>;
 }
 
 type SortOption = 'name' | 'status' | 'category' | 'uptime' | 'responseTime' | 'lastCheck';
@@ -24,9 +27,12 @@ const Dashboard: React.FC<DashboardProps> = ({
   machines, 
   onPingMachine, 
   onPingAll, 
+  onSimulateFailure,
   stats,
   pingInProgress,
-  globalPingInProgress 
+  globalPingInProgress,
+  simulationInProgress,
+  simulatedFailures
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState<'all' | 'online' | 'offline' | 'unknown'>('all');
@@ -302,6 +308,9 @@ const Dashboard: React.FC<DashboardProps> = ({
                 machine={machine}
                 onPing={() => onPingMachine(machine.id)}
                 isPinging={pingInProgress.has(machine.id)}
+                onSimulateFailure={() => onSimulateFailure(machine.id)}
+                isSimulatingFailure={simulationInProgress.has(machine.id)}
+                isSimulatedFailure={simulatedFailures.has(machine.id)}
               />
             ))}
           </div>

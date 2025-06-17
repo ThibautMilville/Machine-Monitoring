@@ -303,6 +303,66 @@ app.post('/api/machines/:id/ping', async (req, res) => {
   }
 });
 
+// Simulate failure/recovery for a specific machine
+app.post('/api/machines/:id/simulate-failure', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { status } = req.body;
+    const machines = await loadMachines();
+    
+    const machine = machines.find(m => m.id === id);
+    if (!machine) {
+      return res.status(404).json({ error: 'Machine not found' });
+    }
+    
+    const previousStatus = machine.status;
+    const now = new Date().toISOString();
+    
+    // Update machine status
+    machine.status = status;
+    machine.lastCheck = now;
+    
+    // Set response time based on status
+    if (status === 'offline') {
+      machine.responseTime = null;
+    } else {
+      // Simulate a reasonable response time for online status
+      machine.responseTime = Math.floor(Math.random() * 50) + 10; // 10-60ms
+    }
+    
+    // Create alerts for status changes
+    if (previousStatus !== status) {
+      if (status === 'offline') {
+        await createAlert(machine.id, machine.name, 'down', `Machine ${machine.name} failure simulated`);
+      } else if (status === 'online') {
+        await createAlert(machine.id, machine.name, 'up', `Machine ${machine.name} recovery simulated`);
+      }
+    }
+    
+    // Add to history
+    machine.history = machine.history || [];
+    machine.history.push({
+      timestamp: now,
+      status: machine.status,
+      responseTime: machine.responseTime
+    });
+    if (machine.history.length > 50) {
+      machine.history = machine.history.slice(-50);
+    }
+    
+    // Calculate uptime percentage
+    machine.uptimePercentage = calculateUptime(machine.history);
+    
+    await saveMachines(machines);
+    
+    console.log(`Simulated ${status} for machine: ${machine.name}`);
+    res.json({ machine, simulated: true });
+  } catch (error) {
+    console.error('Error simulating failure:', error);
+    res.status(500).json({ error: 'Failed to simulate failure' });
+  }
+});
+
 // Ping all machines (optimized with parallel execution)
 app.post('/api/machines/ping-all', async (req, res) => {
   try {

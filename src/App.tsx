@@ -3,6 +3,7 @@ import { Monitor, Plus, Settings, Activity, Clock } from 'lucide-react';
 import Dashboard from './components/Dashboard';
 import MachineManager from './components/MachineManager';
 import { Machine } from './types';
+import { mockService } from './services/mockService';
 
 // Composant de progression circulaire
 const CircularProgress: React.FC<{ 
@@ -60,6 +61,8 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [isMonitoring, setIsMonitoring] = useState(false);
   const [testingMachines, setTestingMachines] = useState<string[]>([]);
+  const [simulatingMachines, setSimulatingMachines] = useState<string[]>([]);
+  const [simulatedFailures, setSimulatedFailures] = useState<string[]>([]);
   const [globalPingInProgress, setGlobalPingInProgress] = useState(false);
   const [monitoringInterval, setMonitoringInterval] = useState(30); // en secondes
   const [timeUntilNextCheck, setTimeUntilNextCheck] = useState(0);
@@ -89,9 +92,18 @@ function App() {
         });
       }, 1000);
 
+      // Simulation automatique de changements d'état aléatoires
+      const randomSimulationInterval = mockService.startRandomSimulation(
+        (updatedMachines) => {
+          setMachines(updatedMachines);
+        },
+        45000 // Changement aléatoire toutes les 45 secondes
+      );
+
       return () => {
         clearInterval(interval);
         clearInterval(countdownInterval);
+        clearInterval(randomSimulationInterval);
       };
     } else {
       setTimeUntilNextCheck(0);
@@ -100,9 +112,14 @@ function App() {
 
   const loadMachines = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/machines');
-      const data = await response.json();
+      const data = await mockService.getMachines();
       setMachines(data);
+      
+      // Charger les pannes simulées
+      const simulatedFailureIds = data
+        .filter(machine => mockService.isSimulatedFailure(machine.id))
+        .map(machine => machine.id);
+      setSimulatedFailures(simulatedFailureIds);
     } catch (error) {
       console.error('Failed to load machines:', error);
     } finally {
@@ -113,10 +130,7 @@ function App() {
   const pingAllMachines = async () => {
     setGlobalPingInProgress(true);
     try {
-      const response = await fetch('http://localhost:3001/api/machines/ping-all', {
-        method: 'POST',
-      });
-      const results = await response.json();
+      const results = await mockService.pingAllMachines();
       const updatedMachines = results.map((result: any) => result.machine);
       setMachines(updatedMachines);
     } catch (error) {
@@ -128,33 +142,17 @@ function App() {
 
   const addMachine = async (machineData: Omit<Machine, 'id' | 'status' | 'lastCheck' | 'responseTime' | 'uptime' | 'downtime' | 'history' | 'uptimePercentage' | 'createdAt'>) => {
     try {
-      const response = await fetch('http://localhost:3001/api/machines', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(machineData),
-      });
-      
-      if (response.ok) {
-        const newMachine = await response.json();
-        setMachines(prev => [...prev, newMachine]);
-      } else {
-        const error = await response.json();
-        console.error('Failed to add machine:', error.error);
-        alert(`Erreur: ${error.error}`);
-      }
-    } catch (error) {
+      const newMachine = await mockService.addMachine(machineData);
+      setMachines(prev => [...prev, newMachine]);
+    } catch (error: any) {
       console.error('Failed to add machine:', error);
-      alert('Erreur lors de l\'ajout de la machine');
+      alert(`Erreur: ${error.message}`);
     }
   };
 
   const deleteMachine = async (id: string) => {
     try {
-      await fetch(`http://localhost:3001/api/machines/${id}`, {
-        method: 'DELETE',
-      });
+      await mockService.deleteMachine(id);
       setMachines(prev => prev.filter(m => m.id !== id));
     } catch (error) {
       console.error('Failed to delete machine:', error);
@@ -164,15 +162,37 @@ function App() {
   const testMachine = async (id: string) => {
     setTestingMachines(prev => [...prev, id]);
     try {
-      const response = await fetch(`http://localhost:3001/api/machines/${id}/ping`, {
-        method: 'POST',
-      });
-      const result = await response.json();
+      const result = await mockService.pingMachine(id);
       setMachines(prev => prev.map(m => m.id === id ? result.machine : m));
     } catch (error) {
       console.error('Failed to ping machine:', error);
     } finally {
       setTestingMachines(prev => prev.filter(machineId => machineId !== id));
+    }
+  };
+
+  const simulateFailure = async (id: string) => {
+    setSimulatingMachines(prev => [...prev, id]);
+    try {
+      const machine = machines.find(m => m.id === id);
+      if (!machine) return;
+
+      const isCurrentlySimulated = mockService.isSimulatedFailure(id);
+      const newStatus = isCurrentlySimulated ? 'online' : 'offline';
+      const result = await mockService.simulateFailure(id, newStatus);
+      
+      setMachines(prev => prev.map(m => m.id === id ? result.machine : m));
+      
+      // Mettre à jour l'état des pannes simulées
+      if (newStatus === 'offline') {
+        setSimulatedFailures(prev => [...prev, id]);
+      } else {
+        setSimulatedFailures(prev => prev.filter(machineId => machineId !== id));
+      }
+    } catch (error) {
+      console.error('Failed to simulate failure:', error);
+    } finally {
+      setSimulatingMachines(prev => prev.filter(machineId => machineId !== id));
     }
   };
 
@@ -322,7 +342,10 @@ function App() {
           <Dashboard 
             machines={machines}
             onPingMachine={testMachine}
+            onSimulateFailure={simulateFailure}
             pingInProgress={new Set(testingMachines)}
+            simulationInProgress={new Set(simulatingMachines)}
+            simulatedFailures={new Set(simulatedFailures)}
             stats={basicStats}
             globalPingInProgress={globalPingInProgress}
             onPingAll={pingAllMachines}

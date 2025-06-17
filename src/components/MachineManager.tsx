@@ -79,6 +79,17 @@ const MachineManager: React.FC<MachineManagerProps> = ({
   onTestMachine,
   testingMachines
 }) => {
+  // Mapping des serveurs publics vers des IPs fictives pour l'affichage
+  const getDisplayIP = (realHost: string) => {
+    const ipMapping: { [key: string]: string } = {
+      '8.8.8.8': '192.168.1.10',      // Paris
+      '1.1.1.1': '192.168.2.10',      // Marseille  
+      '9.9.9.9': '192.168.3.10',      // Lyon
+      '8.8.4.4': '192.168.4.10',      // Toulouse
+      '208.67.222.222': '192.168.5.10' // Bordeaux
+    };
+    return ipMapping[realHost] || realHost;
+  };
   const [searchTerm, setSearchTerm] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
@@ -261,7 +272,7 @@ const MachineManager: React.FC<MachineManagerProps> = ({
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-gray-500">Adresse IP</span>
                   <code className="bg-gray-100 px-2 py-1 rounded text-gray-800 font-mono text-xs">
-                    {machine.host}
+                    {getDisplayIP(machine.host)}
                   </code>
                 </div>
                 
