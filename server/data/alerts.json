@@ -1,0 +1,11 @@
+[
+  {
+    "id": "1750151785405",
+    "machineId": "15",
+    "machineName": "SRV-FILE-001",
+    "type": "down",
+    "message": "Machine SRV-FILE-001 is now offline",
+    "timestamp": "2025-06-17T09:16:25.405Z",
+    "acknowledged": false
+  }
+]
